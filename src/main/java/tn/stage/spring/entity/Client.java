@@ -35,8 +35,8 @@ public class Client {
 	private String CodeClient;
 	@Column(name="Adresse")
 	private String Adresse;
-	@Column(name="Téléphone")
-	private String Téléphone;
+	@Column(name="Telephone")
+	private String Telephone;
 	@Column(name="Fax")
 	private String Fax;
 	@Column(name="AdresseEMail")
@@ -54,8 +54,8 @@ public class Client {
 	private String Ville;
 	@Column(name="Civilité")
 	private String Civilité;
-	@Column(name="PrénomClient")
-	private String PrénomClient;
+	@Column(name="PrenomClient")
+	private String PrenomClient;
 	@Column(name="AdresseSuite")
 	private String AdresseSuite;
 	@Column(name="TypeClient")

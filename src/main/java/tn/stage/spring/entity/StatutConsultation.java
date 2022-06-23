@@ -2,6 +2,8 @@ package tn.stage.spring.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +28,8 @@ public class StatutConsultation {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="IDF_StatutConsultaion")
 	private int IDF_StatutConsultaion; //numeric
-	@Column(name="StatutConsultation")
-	private String StatutConsultation;
+	@Enumerated(EnumType.STRING)
+	private StatutConsultations StatutConsultation;
 
 
 }
