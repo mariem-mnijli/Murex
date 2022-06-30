@@ -31,7 +31,7 @@ public class TachesRestController {
 			return tacheService.retrieveAllTaches();
 		}
 
-		// http://localhost:8075/SpringMVC/tache/retrieve-Taches/8
+		// http://localhost:8075/SpringMVC/tache/retrieve-Taches/{Taches-num}
 		@GetMapping("/retrieve-Taches/{Taches-num}")
 		@ResponseBody
 		public Taches retrieveTaches(@PathVariable("taches-num") int NumTaches) {

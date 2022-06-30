@@ -1,5 +1,6 @@
 package tn.stage.spring.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,36 +9,30 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Getter
 @Setter
-@Table(name = "Taches")
-
-public class Taches {
-	
+@Table(name = "ImpotsSoumis_Client")
+public class ImpotsSoumis_Client {
 	public static final long serialVersionUID =1L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="IDF_tache")
-	private int IDF_tache; //numeric
-	@Column(name="Designationtache")
-	private String Designationtache;
-	//@Column(name="IDF_Mission")
-	//private int IDF_Mission;
-
+	@Column(name="ImpotsSoumis_Client")
+	private int ImpotsSoumis_Client;
 	
+	@JsonIgnore
 	@ManyToOne
-	private Mission mission_id;
+	ImpotsSoumis impotsSoumis;
 	
+	@JsonIgnore
+	@ManyToOne
+	Client clients;
 	
 }

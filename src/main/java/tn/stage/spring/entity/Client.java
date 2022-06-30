@@ -1,14 +1,21 @@
 package tn.stage.spring.entity;
 
 import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,8 +42,8 @@ public class Client {
 	private String CodeClient;
 	@Column(name="Adresse")
 	private String Adresse;
-	@Column(name="Téléphone")
-	private String Téléphone;
+	@Column(name="Telephone")
+	private String Telephone;
 	@Column(name="Fax")
 	private String Fax;
 	@Column(name="AdresseEMail")
@@ -54,8 +61,8 @@ public class Client {
 	private String Ville;
 	@Column(name="Civilité")
 	private String Civilité;
-	@Column(name="PrénomClient")
-	private String PrénomClient;
+	@Column(name="PrenomClient")
+	private String PrenomClient;
 	@Column(name="AdresseSuite")
 	private String AdresseSuite;
 	@Column(name="TypeClient")
@@ -157,7 +164,22 @@ public class Client {
 	private int Nbre_de_parts;
     
     
+	@JsonIgnore	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="clients")
+	private Set<ImpotsSoumis_Client> ImpotsSoumis_Client;
+	
+	
+	@ManyToOne
+	private TypeClient typeClient;
+	
+	@ManyToOne
+	private Associer associer;
+}
+
+    
+
+    
     
 	
 
-}
+
