@@ -1,17 +1,27 @@
 package tn.stage.spring;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@EnableWebMvc
-@EntityScan( basePackages = {"tn.stage.spring.entity"})
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+
+@EnableSwagger2
 @SpringBootApplication
 public class SmsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SmsApplication.class, args);
 	}
+	
 
 }
+

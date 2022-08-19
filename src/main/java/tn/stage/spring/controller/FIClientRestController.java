@@ -14,52 +14,54 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import tn.stage.spring.Iservice.IFIClient;
 import tn.stage.spring.Iservice.Iclient;
 import tn.stage.spring.entity.Client;
+import tn.stage.spring.entity.FIClient;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/FIClient")
 @CrossOrigin
 
-public class ClientRestController {
+public class FIClientRestController {
 	@Autowired
-	Iclient clientService;
+	IFIClient clientService;
 	
 	// http://localhost:8075/SpringMVC/client/retrieve-all-clients
-		@GetMapping("/retrieve-all-clients")
+		@GetMapping("/retrieve-all-FIclients")
 		@ResponseBody
-		public List<Client> getClients() {
-			return clientService.retrieveAllClient();
+		public List<FIClient> getFIClients() {
+			return clientService.retrieveAllFIClient();
 		}
 
 		// http://localhost:8075/SpringMVC/client/retrieve-client/8
-		@GetMapping("/retrieve-client/{client-num}")
+		@GetMapping("/retrieve-FIclient/{FIclient-num}")
 		@ResponseBody
-		public Client retrieveClient(@PathVariable("client-num") int NumClient) {
+		public FIClient retrieveFIClient(@PathVariable("FIclient-num") int NumFIClient) {
 		
-			return clientService.retrieveClient(NumClient);
+			return clientService.retrieveFIClient(NumFIClient);
 		}
 
 		// http://localhost:8075/SpringMVC/client/add-client
-		@PostMapping("/add-client")
+		@PostMapping("/add-FIclient")
 		@ResponseBody
-		public Client addClient(@RequestBody Client c) {
-			Client client = clientService.addClient(c);
+		public FIClient addFIClient(@RequestBody FIClient c) {
+			FIClient client = clientService.addFIClient(c);
 			return client;
 		}
 
 		// http://localhost:8075/SpringMVC/client/remove-client/{client-num}
-		@DeleteMapping("/remove-client/{client-num}")
+		@DeleteMapping("/remove-FIclient/{FIclient-num}")
 		@ResponseBody
-		public void removeClient(@PathVariable("client-num") int NumClient) {
-			clientService.deleteClient(NumClient);
+		public void removeFIClient(@PathVariable("FIclient-num") int NumFIClient) {
+			clientService.deleteFIClient(NumFIClient);
 		}
 
 		// http://localhost:8075/SpringMVC/client/modify-client
-		@PutMapping("/modify-client")
+		@PutMapping("/modify-FIclient")
 		@ResponseBody
-		public Client modifyClient(@RequestBody Client client) {
-			return clientService.updateClient(client);
+		public FIClient modifyFIClient(@RequestBody FIClient FIclient) {
+			return clientService.updateFIClient(FIclient);
 	}
 
 }

@@ -1,14 +1,14 @@
 package tn.stage.spring.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,15 +22,20 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-@Table(name = "StatutConsultation")
-public class StatutConsultation {
+@Table(name = "Taches")
+
+public class Taches {
+	
 	public static final long serialVersionUID =1L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="IDF_StatutConsultaion")
-	private int IDF_StatutConsultaion; //numeric
-	@Enumerated(EnumType.STRING)
-	private StatutConsultations StatutConsultation;
-
-
+	@Column(name="IDF_tache")
+	private int IDF_tache; //numeric
+	@Column(name="Designationtache")
+	private String Designationtache;
+	
+	@JsonIgnore
+	@ManyToOne
+	Mission missions;
+	
 }

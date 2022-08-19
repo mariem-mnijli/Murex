@@ -18,8 +18,10 @@ import tn.stage.spring.Iservice.IstatutConsultation;
 import tn.stage.spring.entity.StatutConsultation;
 
 @RestController
-@CrossOrigin(origins = "*")
+
 @RequestMapping("/statutConsultation")
+@CrossOrigin
+
 public class StatutConsultationController {
 	@Autowired
 	IstatutConsultation statutConsultationService;
